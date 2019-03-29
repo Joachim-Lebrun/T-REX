@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.4.24;
 
 import "./Mintable.sol";
 
@@ -6,16 +6,17 @@ contract Token is Mintable {
     string public name = "TREXDINO";
     string public symbol = "TREX";
     uint8 public constant decimals = 0;
-        
+
     // totalSupply_ = someValue;
 
     event UpdatedTokenInformation(string newName, string newSymbol);
 
     constructor(
-        address _identityRegistry
+        address _identityRegistry,
+        address _compliance
 		)
         public
-		    TransferManager(_identityRegistry)
+		    TransferManager(_identityRegistry, _compliance)
     {}
 
     /**
